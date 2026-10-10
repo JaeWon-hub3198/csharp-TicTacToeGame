@@ -69,6 +69,13 @@ while (gameStart)
         player = 1;
     }
 }
+WaitForEnter();
+
+void WaitForEnter()
+{
+    Console.WriteLine("게임을 종료하시려면 Enter를 눌러주세요.");
+    Console.ReadLine();
+}
 
 int ReadBoardIndex(string choiceName, bool[] matched)
 {
