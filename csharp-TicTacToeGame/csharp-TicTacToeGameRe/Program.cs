@@ -22,14 +22,12 @@ while (gameStart)
 
     if (CheckWin(board, player))
     {
-        DisplayBoard(board);
         Console.WriteLine($"플레이어 {choiceName} 승리!");
         break;
     }
 
     if (count == BoardSize)
     {
-        DisplayBoard(board);
         Console.WriteLine("무승부입니다.");
         break;
     }
