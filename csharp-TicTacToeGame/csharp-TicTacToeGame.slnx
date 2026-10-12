@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="csharp-TicTacToeGame/csharp-TicTacToeGame.csproj" />
+  <Project Path="csharp-TicTacToeGameRe/csharp-TicTacToeGameRe.csproj" Id="762a0575-3bba-431a-be06-ef349cd1a2da" />
 </Solution>
