@@ -6,7 +6,7 @@ const int TicTacToe = 9;
 const int ColumCount = 3;
 
 int[] board = new int[TicTacToe];
-bool[] matched = new bool[TicTacToe];
+bool[] matched = new bool[TicTacToe]; // 필요없다. 얘는 판이 하나라서
 
 int player = 1;
 int count = 0;
@@ -24,12 +24,14 @@ while (gameStart)
     matched[index] = true;
     count++;
 
+
+    // 승리 조건을 함수로 하드코딩보단 동일한 규칙으로
     // 가로 3줄이 동일시 승리
     if (board[0] == player && board[1] == player && board[2] == player ||
         board[3] == player && board[4] == player && board[5] == player ||
         board[6] == player && board[7] == player && board[8] == player)
     {
-        DisPlayBoard(board, matched);
+        DisPlayBoard(board, matched); // 중복되서 호출되는 경우가 없으면 밖으로 일괄로
         Console.WriteLine($"플레이어 {choiceName} 승리!");
         break;
     }
@@ -111,7 +113,7 @@ int ReadBoardIndex(string choiceName, bool[] matched)
 
 void DisPlayBoard(int[] board, bool[] matched)
 {
-    Console.Clear();
+    Console.Clear(); // 없어도 똑같음
     Title();
     Console.WriteLine();
     Console.WriteLine("위치 번호:");
@@ -136,7 +138,7 @@ void DisPlayBoard(int[] board, bool[] matched)
     {
         string show = ".";
 
-        if (matched[i] == true)
+        if (matched[i]) // 복잡하게 되어버림 ( 보드 배열 하나로 == true 필요없음)
         {
             if (board[i] == 1)
             {
@@ -150,7 +152,7 @@ void DisPlayBoard(int[] board, bool[] matched)
         shows[i] = show;
     }
 
-    for (int i = 0; i < shows.Length; i += ColumCount)
+    for (int i = 0; i < shows.Length; i += ColumCount) // string으로 하나로 합칠 수 있을듯
     {
         Console.WriteLine(string.Join(" | ",
          shows[i], shows[i + 1], shows[i + 2]));
